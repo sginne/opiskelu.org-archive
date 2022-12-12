@@ -1,0 +1,28 @@
+
+c = 0.3-0.2i;
+k = 20; %toistot
+v = 500;  %tark.
+
+%säde
+r=2;
+
+% divide the x-axis
+d = linspace(-r,r,v);
+
+%im. luku. matriisi
+A = ones(v,1)*d+i*(ones(v,1)*d)';
+%A
+
+% itse kuva
+B = zeros(v,v);
+
+% toistot
+for s = 1:k
+    B = B+(abs(A)<=r);
+    A = A.*A+ones(v,v).*c;
+end;
+
+% kuva näkyviin
+imagesc(B);
+colormap(gray);
+

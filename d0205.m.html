@@ -1,0 +1,14 @@
+a= round(rand(1)*1000);
+fprintf('a=%3d\n',a);
+fprintf('1/%3d=%5.5f\n',a,1/a);
+x(1)=2/(round(rand(1)*1000)+a);
+fprintf('x(0)=%5.12d\n',x(1));
+for index=2:1000
+    x(index)=x(index-1)*(2-a*x(index-1));
+end
+fprintf('x(1000)=%5.12f\n',x(1000));
+fprintf('error(1000):%1.16f\n',x(1000)-1/a);
+fprintf('error(500):%1.16f\n',x(500)-1/a);
+fprintf('error(100):%1.16f\n',x(100)-1/a);
+fprintf('error(10):%1.16f\n',x(10)-1/a);
+fprintf('error(3):%1.16f\n',x(3)-1/a);

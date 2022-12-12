@@ -1,0 +1,25 @@
+aste=randi([15, 50]);
+p=randi([-500, 500]);
+step=100;
+poly=[p];
+for i=1:aste
+    gen=randi([p,p+step]);
+    p=gen;
+    poly=[poly gen];
+end
+
+r=roots(poly);
+
+
+hold all
+
+ang=0:0.1:2*pi; 
+xp=1*cos(ang);
+yp=1*sin(ang);
+plot(xp,yp,'.');
+
+for j=1:length(r)
+    x=real(r(j));
+    y=imag(r(j));
+    plot(x,y,'x');
+end

@@ -1,0 +1,14 @@
+b=floor(rand(1)*40);
+clc;
+c=floor(rand(1)*40);
+
+m=[3:3:15];
+format long
+fprintf('b=%2d c=%2d\n',b,c)
+
+for i = m
+    a=((b^2)/(4*c*10^i));
+    x=(b+sqrt(b^2+4*a*c))/(2*a);
+    deviation=a*x*x+b*x+c;
+    fprintf('With a=%1.8e we have deviation %1.10e, (step with power %1d)\n',a,deviation,i)
+end

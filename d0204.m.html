@@ -1,0 +1,19 @@
+ax=(50).*rand(1,1);
+ay=(50).*rand(1,1);
+bx=(50).*rand(1,1)-100;
+by=(50).*rand(1,1) - 100;
+cx=(50).*rand(1,1) -100;
+cy=(50).*rand(1,1) ;
+dx=(50).*rand(1,1) ;
+dy=(100).*rand(1,1) - 100;
+
+clf
+hold on
+det = (ax-bx)*(cy-dy)-(ay-by)*(cx-dx);
+
+point = [((ax*by-ay*bx)*(cx-dx)-(ax-bx)*(cx*dy-cy*dx))/det ...
+        ,((ax*by-ay*bx)*(cy-dy)-(ay-by)*(cx*dy-cy*dx))/det]
+
+line([ax bx],[ay by])
+line([cx dx],[cy dy])
+plot(point(1),point(2),'o')
